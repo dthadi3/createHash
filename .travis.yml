@@ -1,3 +1,7 @@
+arch:
+  - amd64
+  - ppc64le
+
 sudo: false
 language: node_js
 before_install:
@@ -13,5 +17,8 @@ env:
 matrix:
   include:
     - node_js: "7"
+      env: TEST_SUITE=standard
+    - node_js: "7"
+      arch: ppc64le
       env: TEST_SUITE=standard
 script: npm run $TEST_SUITE
